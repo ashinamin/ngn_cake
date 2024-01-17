@@ -1,23 +1,37 @@
 <h4>商品新規登録</h4>
 
 <%= form_with model: @item, url: '/items', method: :post do |f| %>
+<div class="form-group">
   <%= f.label :image, "商品画像" %>
   <%= f.file_field :image, accept: "image/*" %>
+</div>
 
+<div class="form-group">
   <%= f.label :name, "商品名" %>
   <%= f.text_field :name, placeholder: "商品名" %>
+</div>
 
+<div class="form-group">
   <%= f.label :introduction, "商品説明" %>
-  <%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %>
+  <%= f.text_area :introduction, rows: '5', placeholder: "ここに説明文を記述します" %>
+</div>
 
   <!--<#%= f.collection_select :genre, Genre.all, :id, :name, include_blank: true %>-->
 
+<div class="form-group">
   <%= f.label :price_without_tax, "税抜価格" %>
   <%= f.text_field :price_without_tax, placeholder: "1000" %>
+</div>
 
+<div class="form-group">
   <%= f.label :status, "販売ステータス" %>
-  <%= f.radio_button :status, "for sale" %>販売中
-  <%= f.radio_button :status, "sales stop" %>販売停止中
+  <%= f.radio_button :status, "for sale" %>
+  <%= f.label :status, "販売中" %>
+  <%= f.radio_button :status, "sales stop" %>
+  <%= f.label :status, "販売停止中" %>
+</div>
 
+<div class="form-group">
   <%= f.submit '新規登録', class: "btn btn-success" %>
+</div>
 <% end %>
