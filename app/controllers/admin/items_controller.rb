@@ -13,12 +13,16 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
   end
 
   def update
+    @item = Item.find(params[:id])
+    @item = update
+    redirect_to '/admin/show'
   end
 
   private
