@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  devise_for :customers
+  devise_for :admins
+  
   get 'admin_order_details/update'
   get 'admin_orders/show'
   get 'admin_orders/update'
@@ -20,6 +24,7 @@ Rails.application.routes.draw do
   get 'admin_sessions/new'
   get 'admin_sessions/create'
   get 'admin_sessions/destroy'
+  
   get 'public_addresses/index'
   get 'public_addresses/edit'
   get 'public_addresses/create'
@@ -50,7 +55,6 @@ Rails.application.routes.draw do
   get 'public_registrations/create'
   get 'public_items/index'
   get 'public_items/show'
-  devise_for :customers
-  devise_for :admins
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
