@@ -1,7 +1,7 @@
 <%= form_with model: item, url: '/items', method: :post do |f| %>
 <div class="form-group">
-  <%= f.label :image, "商品画像" %>
-  <%= f.file_field :image, accept: "image/*" %>
+  <%= f.label :item_image, "商品画像" %>
+  <%= f.file_field :item_image, accept: "image/*" %>
 </div>
 <div class="form-group">
   <%= f.label :name, "商品名" %>
@@ -16,16 +16,16 @@
   <%= f.collection_select :genre, Genre.all, :id, :name, include_blank: true %>
 </div>  
 <div class="form-group">
-  <%= f.label :price_without_tax, "税抜価格" %>
-  <%= f.text_field :price_without_tax, placeholder: "1000" %>
-  <%= f.label :price_without_tax, "円" %>
+  <%= f.label :price, "税抜価格" %>
+  <%= f.text_field :price, placeholder: "1000" %>
+  <%= f.label :price, "円" %>
 </div>
 <div class="form-group">
-  <%= f.label :status, "販売ステータス" %>
-  <%= f.radio_button :status, "for sale" %>
-  <%= f.label :status, "販売中" %>
-  <%= f.radio_button :status, "sales stop" %>
-  <%= f.label :status, "販売停止中" %>
+  <%= f.label :is_activ, "販売ステータス" %>
+  <%= f.radio_button :is_activ, "for sale" %>
+  <%= f.label :is_activ, "販売中" %>
+  <%= f.radio_button :is_activ, "sales stop" %>
+  <%= f.label :is_activ, "販売停止中" %>
 </div>
 <div class="form-group">
   <%= f.submit submit_label, class: "btn btn-success" %>
