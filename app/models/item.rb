@@ -4,6 +4,10 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_details
   has_many :order_details
   belongs_to :genre
+  
+  def add_tax_sales_price
+    (self.sales_price * 1.10).round
+  end
    
   def get_item_image(width, height)
     unless item_image.attached?

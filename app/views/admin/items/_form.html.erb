@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <td>ジャンル</td>
-      <td><%= f.collection_select :genre, Genre.all, :id, :name, include_blank: true, size: '185' %></td>
+      <td><%= f.collection_select :genre, Genre.all, :id, :name, include_blank: "-- 選択してください --" %></td>
     </tr>
     <tr>
       <td>税抜価格</td>

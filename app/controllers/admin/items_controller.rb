@@ -10,8 +10,6 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item = save
-    redirect_to '/admin/show'
     if @item.save
       redirect_to admin_item_path(@item), notice: "You have created item successfully."
     else
@@ -25,15 +23,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
-
     @item = Item.find(params[:id])
     @submit_label = '変更を保存'
   end
 
   def update
     @item = Item.find(params[:id])
-    @item = update
-    redirect_to '/admin/show'
     if @item.update(item_params)
       redirect_to admin_item_path(@item), notice: "You have updated item successfully."
     else
@@ -44,6 +39,6 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :image, :price_without_tax, :status, :genre)
+    params.require(:item).permit(:name, :introduction, :item_image, :price, :is_activ, :genre)
   end
 end
