@@ -29,15 +29,7 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe'
     get 'customers/withdraw'
   end
-  namespace :admin do
-    get 'making_status/update'
-  end
-  namespace :admin do
-    get 'status/update'
-  end
-  namespace :admin do
-    get 'order_details/show'
-  end
+ 
   namespace :admin do
     get 'customers/index'
     get 'customers/show'
@@ -73,14 +65,7 @@ Rails.application.routes.draw do
     get 'shippings/update'
     get 'shippings/destroy'
   end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/confirm'
-    get 'orders/complete'
-    get 'orders/process'
-    get 'orders/index'
-    get 'orders/show'
-  end
+  
   namespace :public do
     get 'cart_items/index'
     get 'cart_items/update'
@@ -88,13 +73,7 @@ Rails.application.routes.draw do
     get 'cart_items/destroy_all'
     get 'cart_items/create'
   end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
-    get 'customers/confirm'
-    get 'customers/process'
-  end
+  
   namespace :public do
     get 'sessions/new'
     get 'sessions/create'
