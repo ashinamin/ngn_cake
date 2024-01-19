@@ -1,33 +1,32 @@
-<%= form_with model: item, url: '/items', method: :post do |f| %>
-<div class="form-group">
-  <%= f.label :item_image, "商品画像" %>
-  <%= f.file_field :item_image, accept: "image/*" %>
-</div>
-<div class="form-group">
-  <%= f.label :name, "商品名" %>
-  <%= f.text_field :name, placeholder: "商品名" %>
-</div>
-<div class="form-group">
-  <%= f.label :introduction, "商品説明" %>
-  <%= f.text_area :introduction, rows: '5', placeholder: "ここに説明文を記述します" %>
-</div>
-<div class="form-group">
-  <%= f.label :genre, "ジャンル" %>
-  <%= f.collection_select :genre, Genre.all, :id, :name, include_blank: true, size: '185' %>
-</div>  
-<div class="form-group">
-  <%= f.label :price, "税抜価格" %>
-  <%= f.text_field :price, placeholder: "1000" %>
-  <%= f.label :price, "円" %>
-</div>
-<div class="form-group">
-  <%= f.label :is_activ, "販売ステータス" %>
-  <%= f.radio_button :is_activ, "true" %>
-  <%= f.label :is_activ, "販売中" %>
-  <%= f.radio_button :is_activ, "false" %>
-  <%= f.label :is_activ, "販売停止中" %>
-</div>
-<div class="form-group">
-  <%= f.submit submit_label, class: "btn btn-success" %>
-</div>
-<% end %>
+<table class="table table-borderless">
+  <%= form_with model: item, url: '/items', method: :post do |f| %>
+    <tr>
+      <td>商品画像</td>
+      <td><%= f.file_field :item_image, accept: "image/*" %></td>
+    </tr>
+    <tr>
+      <td>商品名</td>
+      <td><%= f.text_field :name, placeholder: "商品名" %></td>
+    </tr>
+    <tr>
+      <td>商品説明</td>
+      <td><%= f.text_area :introduction, rows: '5', placeholder: "ここに説明文を記述します" %></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= f.collection_select :genre, Genre.all, :id, :name, include_blank: true, size: '185' %></td>
+    </tr>
+    <tr>
+      <td>税抜価格</td>
+      <td><%= f.text_field :price, placeholder: "1000" %>円</td>
+    </tr>
+    <tr>
+      <td>販売ステータス</td>
+      <td><%= f.radio_button :is_activ, "for sale" %>販売中　<%= f.radio_button :is_activ, "sales stop" %>販売停止</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit submit_label, class: "btn btn-success" %></td>
+    </tr>
+  <% end %>
+</table>
