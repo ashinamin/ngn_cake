@@ -1,9 +1,8 @@
-<div class="container">
-  <br>
+<div class="container mt-4">
     <div class="row">
-      <div class="col-1"></div>
+      <<div class='col-lg-1'></div>
       <div class="col-3">
-        <span style="background-color: rgb(220, 220, 220);"><h4>商品一覧</h4></span>
+        <h4><span style="background-color: rgb(220, 220, 220);">商品一覧</span></h4>
       </div>
       <div class="col-6"></div>
       <div class="col-1">
@@ -11,7 +10,6 @@
       </div>
       <div class="col-1"></div>
     </div>
-  <br>  
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
@@ -30,7 +28,7 @@
               <% @items.each do |item| %>
                 <tr>
                   <td><%= item.id %></td>
-                  <td><%= link_to 'item.name', admin_item_path(item) %></td>
+                  <td><%= link_to '<%= item.name %>', admin_item_path(item) %></td>
                   
                   
                   <td><%= item.price %></td>
