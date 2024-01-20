@@ -8,8 +8,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :encrypted_password, "パスワード" %>
+    <%= f.password_field :encrypted_password, autocomplete: "current-password" %>
   </div>
 
   </br>
@@ -21,5 +21,4 @@
 </br>
 </br>
 会員登録がお済みでない方<br>
-<%= render "public/shared/links" %>
-から新規登録を行ってください。
+<%= render "public/shared/links" %>から新規登録を行ってください。

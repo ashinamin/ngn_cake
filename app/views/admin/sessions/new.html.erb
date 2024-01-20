@@ -32,11 +32,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password, autocomplete: "current-password"%>
+    <%= f.label :encrypted_password, "パスワード" %>
+    <%= f.password_field :encrypted_password, autocomplete: "current-password"%>
   </div>
 
-<p id="nitice"></p>
+<p id="notice"></p>
 
   <div class="actions">
     <%= f.submit "ログイン" ,class: 'btn btn-primary'%>
