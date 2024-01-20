@@ -5,10 +5,10 @@
             <h4><span style="background-color: rgb(220, 220, 220);">商品詳細</span></h4>
     </div>
     <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4">
             <%= image_tag @item.item_image, size: '80x50' %>
         </div>
-        <div class="col-6">
+        <div class="col-lg-6">
             <table class="table table-borderless">
                 <tr>
                     <th>商品名</th>
@@ -32,13 +32,13 @@
                 </tr>
             </table>
         </div>
-        <div class="col-5"></div>
+        <div class="col-lg-5"></div>
     <div class="row">
-        <div class="col-2">
+        <div class="col-lg-2">
             <tr>
                 <td><%= link_to '編集する', edit_admin_item_path(@item), class: "btn btn-sm btn-success" %></td>
             </tr>
         </div>
-        <div class="col-5"></div>
+        <div class="col-lg-5"></div>
     </div>
 </div>
