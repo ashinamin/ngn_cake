@@ -6,32 +6,37 @@
         <div class="col-4">
             <%= image_tag @item.item_image, size: '80x50' %>
         </div>
-        <table class="table table-borderless">
-            <div class="col-6">
+        <div class="col-6">
+            <table class="table table-borderless">
                 <tr>
-                    <td>商品名</td>
+                    <th>商品名</th>
                     <td><%= @item.name %></td>
                 </tr>
                 <tr>
-                    <td>商品説明</td>
+                    <th>商品説明</th>
                     <td><%= @item.introduction %></td>
                 </tr>
                 <tr>
-                    <td>ジャンル</td>
+                    <th>ジャンル</th>
                     <td><%= @item.genre %></td>
                 </tr>
                 <tr>
-                    <td>税込価格<br>(税抜価格)</td>
-                    <td><%= @item.add_tax_sales_price.to_s(:dalimited) %>(<%= @item.price %>)円</td>
+                    <th>税込価格<br>(税抜価格)</th>
+                    <td><%= @item.add_tax_price.to_s(:dalimited) %>(<%= @item.price %>)円</td>
                 </tr>
                 <tr>
-                    <td>販売ステータス</td>
+                    <th>販売ステータス</th>
                     <td><%= @item.is_activ, class: "text-success" %></td>
                 </tr>
-                    <%= link_to '編集する', edit_admin_item_path(@item), class: "btn btn-sm btn-success" %>
-                </tr>
-            </div>
-        </table>    
-        <div class="col-2"></div>
+            </table>
+        </div>
+        <div class="col-5"></div>
+    <div class="row">
+        <div class="col-2">
+            <tr>
+                <td><%= link_to '編集する', edit_admin_item_path(@item), class: "btn btn-sm btn-success" %></td>
+            </tr>
+        </div>
+        <div class="col-5"></div>
     </div>
 </div>

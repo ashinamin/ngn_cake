@@ -1,2 +1,12 @@
-<h4>商品編集</h4>
-<%= render 'form', item: @item, submit_label: @submit_label %>
+<div class="container">
+    <div class="row">
+        <span style="background-color: rgb(220, 220, 220);"><h4>商品編集</h4></span>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <%= render 'form', item: @item, submit_label: @submit_label %>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

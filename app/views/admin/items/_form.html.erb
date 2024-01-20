@@ -1,27 +1,27 @@
 <table class="table table-borderless">
   <%= form_with model: item, url: '/items', method: :post do |f| %>
     <tr>
-      <td>商品画像</td>
+      <th>商品画像</th>
       <td><%= f.file_field :item_image, accept: "image/*" %></td>
     </tr>
     <tr>
-      <td>商品名</td>
+      <th>商品名</th>
       <td><%= f.text_field :name, placeholder: "商品名" %></td>
     </tr>
     <tr>
-      <td>商品説明</td>
+      <th>商品説明</th>
       <td><%= f.text_area :introduction, rows: '5', placeholder: "ここに説明文を記述します" %></td>
     </tr>
     <tr>
-      <td>ジャンル</td>
+      <th>ジャンル</th>
       <td><%= f.collection_select :genre, Genre.all, :id, :name, include_blank: "-- 選択してください --" %></td>
     </tr>
     <tr>
-      <td>税抜価格</td>
+      <th>税抜価格</th>
       <td><%= f.text_field :price, placeholder: "1000" %>円</td>
     </tr>
     <tr>
-      <td>販売ステータス</td>
+      <th>販売ステータス</th>
       <td><%= f.radio_button :is_activ, "for sale" %>販売中　<%= f.radio_button :is_activ, "sales stop" %>販売停止</td>
     </tr>
     <tr>
