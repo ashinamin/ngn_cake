@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(10)
   end
 
   def new
@@ -10,6 +10,7 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.genre = Genre.find(params[:item][:genre])
     if @item.save
       redirect_to admin_item_path(@item.id), notice: "You have created item successfully."
     else
