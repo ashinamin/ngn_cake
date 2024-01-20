@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   #root to: =>"homes#top"
   
   namespace :admin do
-    resources :items, only: [:new, :create, :index, :show, :edit, :update]
-  end
-  
-  namespace :admin do
     get "/" => "homes#top"
     get "about" => "homes#about"
     #resources :sessions, only: [:new, :create, :destroy]

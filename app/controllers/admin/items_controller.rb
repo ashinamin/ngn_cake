@@ -10,12 +10,12 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.genre = Genre.find(params[:item][:genre])
     if @item.save
-      redirect_to admin_item_path(@item.id), notice: "You have created item successfully."
+      redirect_to admin_item_path(@item), notice: "You have created item successfully."
     else
-      @item = Item.new
       render "new"
+      @item = Item.new
+      @submit_label = '新規登録'
     end
   end
 
@@ -34,6 +34,8 @@ class Admin::ItemsController < ApplicationController
       redirect_to admin_item_path(@item), notice: "You have updated item successfully."
     else
       render "edit"
+      @item = Item.find(params[:id])
+      @submit_label = '変更を保存'
     end
   end
 
