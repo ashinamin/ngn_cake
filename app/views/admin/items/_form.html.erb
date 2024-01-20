@@ -1,5 +1,5 @@
 <table class="table table-borderless">
-  <%= form_with model: item, url: '/items', method: :post do |f| %>
+  <%= form_with model: item, url: '/admin/items', method: :post do |f| %>
     <tr>
       <th>商品画像</th>
       <td><%= f.file_field :item_image, accept: "image/*" %></td>
