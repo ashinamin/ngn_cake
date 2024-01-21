@@ -29,10 +29,13 @@ Rails.application.routes.draw do
     get "cart_items/destroy_all" => "cart_items#destroy_all"
     get "orders/confirm" => "orders#confirm"
     get "orders/thanks" => "orders#thanks"
+    get "customers/my_page" => "customers#show"
+    get "customers/information/edit" => "customers#edit"
+    patch "customers/information" => "customers#update"
     #resources :registrations, only: [:new, :create]
     #resources :sessions, only: [:new, :create, :destroy]
     resources :items, only: [:index, :show]
-    resources :customers, only: [:show, :edit, :update]
+    # resources :customers, only: [:show, :edit, :update]
     resources :cart_items, only: [:index, :update, :destroy]
     resources :orders, only: [:new, :index, :show, :create]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
