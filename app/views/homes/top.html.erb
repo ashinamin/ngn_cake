@@ -1,28 +1,39 @@
 <div class="container">
   <div class="row">
-    <P>ジャンルが入る</P>
-    <%#= render "", %>
+    <div class="col-lg-3">
+      <div class="mt-4">
+        <P>ジャンルが入る</P>
+        <%#= render "", %>
+      </div>
+    </div>
     
-    <div class="col-md-8 offset-md-1">
+    <div class="col-lg-9">
+      <div class="row">
+        <div class="m-5">
+        <span>
+          ようこそ、ながのCAKEへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </span>
+        </div>
+      </div>
       
-      <%= image_tag 'cake.jpg', :size => '550x250' %>
-          <span>
-            ようこそ、ながのCAKEへ！<br>
-            このサイトは、ケーキ販売のECサイトになります。<br>
-            会員でない方も商品の閲覧はできますが、<br>
-            購入には会員登録が必要になります。
-          </span>
-        
+      <div class="row">
+        <h3>新着商品</h3>
+      </div>
+    
+      <div class="row">
+        <% @new_items.each do |item| %>
+          <div class="col-lg-4">
+            <%= image_tag item.item_iamge, size: '80x50'%>
+            <%= item.name %>
+            <%= item.price %>
+          </div>
+        <% end %>
+      </div>
       
-      <h3>新着商品</h3>
       
-      <%# @new_items.each do |item| %>
-      <!--  <div class="row">-->
-          <%#= image_tag(item_image, class: "card-imag-top", size :"50x50") %>
-          <%#= item.name %>
-          <%#= item.price %>
-      <!--  </div>-->
-      <%# end %>
     </div>
   </div>
 </div>
