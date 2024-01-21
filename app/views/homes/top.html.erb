@@ -12,9 +12,15 @@
         購入には会員登録が必要になります。
       </span>
       
-      
       <h3>新着商品</h3>
-  
+      
+      <% @new_items.each do |item| %>
+        <div class="row">
+          <%= image_tag(item_image, class: "card-imag-top", size :"50x50") %>
+          <%= item.name %>
+          <%= item.price %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
