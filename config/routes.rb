@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  root :to =>"public/homes#top"
 
   namespace :admin do
     get "/" => "homes#top"
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    root :to =>"homes#top"
     get "/" => "homes#top"
     get "customers/unsubscribe" => "customers#unsbscribe"
     get "customers/withdraw" => "customers#withdraw"
