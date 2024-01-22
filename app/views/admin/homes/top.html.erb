@@ -11,14 +11,14 @@
         </tr>
       </thead>
       <tbody>
-      <%# orders.each do |order| %>
+      <% orders.each do |order| %>
       <tr>
-        <td><%#= l @order.created_at, format: short %></td>
-        <td><%#= @order.customer.name %></td>
+        <td><%= l @order.created_at, format: short %></td>
+        <td><%= @order.customer.name %></td>
         <td></td>
         <td>a</td>
       </tr>
-    <%# end %>
+    <% end %>
       </tbody>
     </table>
   </div>
