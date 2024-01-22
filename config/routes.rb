@@ -24,8 +24,7 @@ Rails.application.routes.draw do
 
   namespace :public do
     get "/" => "homes#top"
-    get "customers/unsubscribe" => "customers#unsbscribe"
-    get "customers/withdraw" => "customers#withdraw"
+    get "customers/unsubscribe" => "customers#unsubscribe"
     get "cart_items/destroy_all" => "cart_items#destroy_all"
     get "orders/confirm" => "orders#confirm"
     get "orders/thanks" => "orders#thanks"
@@ -39,5 +38,12 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :destroy]
     resources :orders, only: [:new, :index, :show, :create]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+
+    resources :customers do
+     collection do
+       get 'confirm_withdraw'
+       patch 'withdraw'
+     end
+   end
   end
 end
