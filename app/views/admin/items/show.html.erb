@@ -1,11 +1,11 @@
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
     <div class="row">
         <div class='col-lg-1'></div>
             <h4><span style="background-color: rgb(220, 220, 220);">商品詳細</span></h4>
     </div>
     <div class="row">
         <div class="col-lg-4">
-            <%= image_tag @item.item_image, size: '80x50' %>
+            <%= image_tag @item.get_item_image(250,250) %>
         </div>
         <div class="col-lg-6">
             <table class="table table-borderless">
@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <th>ジャンル</th>
-                    <td><%= @item.genre %></td>
+                    <td><%= @item.genre_id %></td>
                 </tr>
                 <tr>
                     <th>税込価格<br>(税抜価格)</th>
@@ -27,17 +27,23 @@
                 </tr>
                 <tr>
                     <th>販売ステータス</th>
-                    <td><%= @item.is_active, class: "text-success" %></td>
+                    <td>
+                        <% if @item.is_active %>
+                          <p class="text-success"><strong>販売中</strong></p>
+                        <% else %>
+                          <p class="text-black-50"><strong>販売停止中</strong></p>
+                        <% end %>
+                    </td>
                 </tr>
             </table>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <%= link_to '編集する', edit_admin_item_path(@item), class: "btn btn-sm btn-success" %>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
         </div>
-        <div class="col-lg-5"></div>
-    <div class="row">
-        <div class="col-lg-2">
-            <tr>
-                <td><%= link_to '編集する', edit_admin_item_path(@item), class: "btn btn-sm btn-success" %></td>
-            </tr>
-        </div>
-        <div class="col-lg-5"></div>
+        <div class="col-lg-2"></div>
     </div>
 </div>

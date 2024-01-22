@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4 mb-4">
     <!--<div class="row"></div>-->
     <div class="row">
       <div class='col-lg-3'>
@@ -10,9 +10,9 @@
           <% @items.each do |item| %>
               <div class="col-lg-3">
                 <% link_to public_item(item) %>
-                <%= image_tag item.item_image, size: '80x50' %>
+                <%= image_tag item.get_item_image(80,50) %>
                 <%= item.name %>
-                ¥<%= item.add_tax_price.to_s(:dalimited) %>
+                ¥<%= item.price.to_s(:dalimited) %>
               </div>
           <% end %>
         </div>

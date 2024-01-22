@@ -7,12 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # 10.times do |n|
-  Item.create!(
-    item_image: File.open('./app/assets/images/NO IMAGE.png'),
-    name: 'あんバターサンド',
-    introduction: 'とろけるような旨さ！！！最高ですよ！！！',
-    genre: 'ケーキ',
-    price: '500',
-    is_active: 'true'
+  Genre.create!(
+    name: 'ケーキ'
   )
-# end
+  
+  Genre.create!(
+    name: 'プリン'
+  )
+  
+  Genre.create!(
+    name: '焼き菓子'
+  )
+  
+  Genre.create!(
+    name: 'キャンディ'
+  )
