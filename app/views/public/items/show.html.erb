@@ -8,10 +8,9 @@
         <%= image_tag @item.get_item_image(250,250) %>
       </div>
       <div class="col-lg-5">
-        <h4><%= @item.name %></h4>
-        <%= @item.introduction %>
-        ¥<%= number_with_delimiter(@item.price, delimiter: ',') %>円
-        <!--¥<%#= @item.price.to_s(:dalimited) %>(税込)-->
+        <strong><%= @item.name %></strong><br>
+        <%= @item.introduction %><br>
+        <strong>¥<%= number_with_delimiter(@item.add_tax_price, delimiter: ',') %></strong>(税込)
         <%= form_with model: @item do |f| %>
           <%= f.hidden_field :item, :value => @item.name %>
           <%= f.hidden_field :item, :value =>  number_with_delimiter(@item.price, delimiter: ',') %>
