@@ -5,31 +5,33 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Genre.create!(
+  name: "ケーキ"
+  )
 
-
-Item.create!(
+item = Item.create!(
   genre_id: 1,
   name: "ケーキあ",
   price: 5000,
   introduction: "あ",
-  is_activ: true
-  images: File.open('app/assets/images/cake_shop.png')
+  is_active: true
   )
+  item.item_image.attach(io: File.open(Rails.root.join("./app/assets/images/NO IMAGE.png")),filename: 'image')
 
-Item.create!(
+item = Item.create!(
   genre_id: 1,
-  name: "ケーキあ",
+  name: "ケーキい",
   price: 5000,
-  introduction: "あ",
-  is_activ: true
-  images: File.open('app/assets/images/cake_shop.png')
+  introduction: "い",
+  is_active: true
   )
+  item.item_image.attach(io: File.open(Rails.root.join("./app/assets/images/NO IMAGE.png")),filename: 'image')
   
-  Item.create!(
+ item = Item.create!(
   genre_id: 1,
-  name: "ケーキあ",
+  name: "ケーキう",
   price: 5000,
-  introduction: "あ",
-  is_activ: true
-  images: File.open('app/assets/images/cake_shop.png')
+  introduction: "う",
+  is_active: true
   )
+  item.item_image.attach(io: File.open(Rails.root.join("./app/assets/images/NO IMAGE.png")),filename: 'image')
