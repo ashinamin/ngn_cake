@@ -9,16 +9,21 @@
         <div class="row">
           <% @items.each do |item| %>
               <div class="col-lg-3">
-                <% link_to public_item(item) %>
-                <%= image_tag item.get_item_image(80,50) %>
-                <%= item.name %>
-                ¥<%= item.price.to_s(:dalimited) %>
+                <%= link_to public_item_path(item) do %>
+                  <%= image_tag item.get_item_image(130,130) %><br>
+                  <%= item.name %><br>
+                  ¥<%= item.price.to_s(:dalimited) %>
+                <% end %>
               </div>
           <% end %>
         </div>
-      </div>
-      <div class="row">
-        <%= paginate @items %>
+        <div class="row">
+          <div class="col-lg-5"></div>
+          <div class="col-lg-4">
+            <%= paginate @items %>
+          </div>
+          <div class="col-lg-3"></div>
+        </div>
       </div>
     </div>
 </div>

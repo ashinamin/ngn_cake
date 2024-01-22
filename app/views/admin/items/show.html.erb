@@ -5,7 +5,7 @@
     </div>
     <div class="row">
         <div class="col-lg-4">
-            <%= image_tag @item.get_item_image(250,250) %>
+            <%= image_tag @item.get_item_image(230,230) %>
         </div>
         <div class="col-lg-6">
             <table class="table table-borderless">
@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <th>ジャンル</th>
-                    <td><%= @item.genre_id %></td>
+                    <td><%= @item.genre.name %></td>
                 </tr>
                 <tr>
                     <th>税込価格<br>(税抜価格)</th>
