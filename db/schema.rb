@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2024_01_18_054708) do
     t.string "postal_code"
     t.string "address"
     t.string "telephone_number"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2024_01_18_054708) do
     t.string "name"
     t.text "introduction"
     t.integer "price"
-    t.boolean "is_activ"
+    t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2024_01_18_054708) do
   create_table "order_details", force: :cascade do |t|
     t.integer "order_id"
     t.integer "item_id"
-    t.integer "making_status"
+    t.integer "making_status", default: 0
     t.integer "amount"
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2024_01_18_054708) do
     t.integer "shipping_cost"
     t.integer "total_payment"
     t.integer "payment_method"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
