@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :order_details, only: [:update]
   end
 
-  namespace :public do
+  scope module: :public do
     get "/" => "homes#top"
     get "customers/unsubscribe" => "customers#unsubscribe"
     get "cart_items/destroy_all" => "cart_items#destroy_all"
