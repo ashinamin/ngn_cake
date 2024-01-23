@@ -10,5 +10,20 @@ Admin.create!(
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-customer = Customer.find_by(email: "test@test.com")
-sign_in(customer)
+
+# 10.times do |n|
+  Genre.create!(
+    name: 'ケーキ'
+  )
+  
+  Genre.create!(
+    name: 'プリン'
+  )
+  
+  Genre.create!(
+    name: '焼き菓子'
+  )
+  
+  Genre.create!(
+    name: 'キャンディ'
+  )
