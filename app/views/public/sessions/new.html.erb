@@ -1,2 +1,24 @@
-<h1>Public::Sessions#new</h1>
-<p>Find me in app/views/public/sessions/new.html.erb</p>
+<h2>ログイン</h2>
+会員の方はこちらからログイン
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  </br>
+
+  <div class="actions">
+    <%= f.submit "ログイン" ,class: 'btn btn-primary' %>
+  </div>
+<% end %>
+</br>
+</br>
+会員登録がお済みでない方<br>
+<%= render "public/shared/links" %>から新規登録を行ってください。

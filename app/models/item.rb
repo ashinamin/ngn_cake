@@ -6,6 +6,10 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_details
   belongs_to :genre
   
+  def add_tax_price
+    (self.price * 1.10).round
+  end
+   
   def get_item_image(width, height)
     unless item_image.attached?
       file_path = Rails.root.join('app/assets/images/NO IMAGE.png')
