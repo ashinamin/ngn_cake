@@ -7,26 +7,26 @@
     <table>
       <tr>
         <th>購入者</th>
-        <td><%= @customer.full_name %></td>
+        <td><%= @order.customer.full_name %></td>
       </tr>
       
       <tr>
         <th>注文日</th>
-        <td></td>
+        <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
       </tr>
       
       <tr>
         <th>配送先</th>
-        <td></td>
+        <td><%= @order.address %></td>
       </tr>
       <tr>
         <th></th>
-        <td></td>
+        <td><%= @customer.name %></td>
       </tr>
       
       <tr>
         <th>支払方法</th>
-        <td></td>
+        <td><%= @customer.payment_method %></td>
       </tr>
       
       <tr>
@@ -46,17 +46,23 @@
           <th></th>
         </tr>
       </thead>
-      
+      <% @order_details.each do |order_detail| %>
       <tbody>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><%= order_detail.item.name %></td>
+          <td><%= (order_detail.price.floor*1.1).to_s(:delimited) %></td>
+          <td><%= order_detail.amount %></td>
+          <td><%= ((order_detail.price * order_detail.amount*1.1).floor).to_s(:delimited) %></td>
           <td></td>
           <td></td>
         </tr>
       </tbody>
     </table>
+    
+    <strong>商品合計</strong>
+    
+    <strong>送料</strong>
+    
+    <strong>請求金額合計</strong>
   </div>
 </div>
