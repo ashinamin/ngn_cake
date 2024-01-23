@@ -31,7 +31,8 @@
       
       <tr>
         <th>注文ステータス</th>
-        <td></td>
+        <td><%= </td>
+        <td><%= f.submit "更新", class: 'btn btn-primary' %></td>
       </tr>
     </table>
     
@@ -53,16 +54,23 @@
           <td><%= (order_detail.price.floor*1.1).to_s(:delimited) %></td>
           <td><%= order_detail.amount %></td>
           <td><%= ((order_detail.price * order_detail.amount*1.1).floor).to_s(:delimited) %></td>
-          <td></td>
-          <td></td>
+          <td><%=  %></td>
+          <td><%= f.submit "更新", class: 'btn btn-primary' %></td>
         </tr>
       </tbody>
     </table>
+    <p>
+      <strong>商品合計</strong>
+      <%= @order.total_payment - @order.shipping_cost).to_s(:delimited) %>円
+    </p>
+    <p>
+      <strong>送料</strong>
+      <%= @order.shipping_cost %>円
+    </p>
+    <p>
+      <strong>請求金額合計</strong>
+      <%= @order.total_payment.to_s(:delimited) %>円
+    </p>
     
-    <strong>商品合計</strong>
-    
-    <strong>送料</strong>
-    
-    <strong>請求金額合計</strong>
   </div>
 </div>
