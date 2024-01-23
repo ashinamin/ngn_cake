@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :order_details, only: [:update]
   end
 
-  namespace :public do
+  scope module: :public do
     get "/" => "homes#top"
     get "customers/unsubscribe" => "customers#unsbscribe"
     get "customers/withdraw" => "customers#withdraw"
