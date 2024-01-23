@@ -72,10 +72,6 @@ ActiveRecord::Schema.define(version: 2024_01_18_054708) do
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/test
     t.string "last_name", null: false
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
@@ -83,18 +79,6 @@ ActiveRecord::Schema.define(version: 2024_01_18_054708) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "telephone_number", null: false
-<<<<<<< HEAD
-=======
-    t.string "last_name"
-    t.string "first_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.string "postal_code"
-    t.string "address"
-    t.string "telephone_number"
->>>>>>> bbb9694e9613c64a49d753e9cb1da07755c8c2b0
-=======
->>>>>>> origin/test
     t.boolean "is_active", default: true, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
