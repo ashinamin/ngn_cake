@@ -12,6 +12,7 @@ Admin.create!(
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # 10.times do |n|
+
   Genre.create!(
     name: 'ケーキ'
   )
