@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  
-  get 'homes/top'
-  get 'homes/about'
+
   devise_for :customers
   devise_for :admins
-  
+
   #root to: =>"homes#top"
-  
+
   namespace :admin do
     get "/" => "homes#top"
     get "about" => "homes#about"
@@ -20,6 +18,7 @@ Rails.application.routes.draw do
 
   namespace :public do
     get "/" => "homes#top"
+    get "about" => "homes#about"
     get "customers/unsubscribe" => "customers#unsbscribe"
     get "customers/withdraw" => "customers#withdraw"
     get "cart_items/destroy_all" => "cart_items#destroy_all"
