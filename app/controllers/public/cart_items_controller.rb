@@ -10,6 +10,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
+    @destroy_all = current_customer.cart_items.destroy_all
   end
 
   def create
