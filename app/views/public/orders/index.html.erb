@@ -20,7 +20,7 @@
         <td><%= @orders.created_at.strftime('%Y/%m/%d') %></td>
         <td><%= @orders.postal_code %></br>
             <%= @orders.address %></td>
-        <td><%= @items.name %></td>
+        <td><%= @orders.items.name %></td>
         <td><% subtotal = ((order_derails.price*cart_items.quantity)*1.08).to_i %>
           <%= subtotal %>
         </td>
