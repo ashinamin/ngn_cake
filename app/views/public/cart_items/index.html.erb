@@ -2,11 +2,11 @@
     <div class="row">
       <div class='col-lg-1'></div>
       <div class="col-lg-3">
-        <h4><span style="background-color: rgb(220, 220, 220);">商品一覧</span></h4>
+        <h4><span style="background-color: rgb(220, 220, 220);">ショッピングカート</span></h4>
       </div>
       <div class="col-lg-6"></div>
       <div class="col-lg-1">
-        <%= link_to"カートを空にする", new_admin_item_path, class: "btn btn-danger" %>
+        <%= link_to "カートを空にする", cart_items_destroy_all_path, class: "btn btn-danger" %>
       </div>
       <div class="col-lg-1"></div>
     </div>
@@ -16,48 +16,40 @@
           <table class='table table-striped'>
             <thead>
               <tr>
-                <th>商品ID</th>
                 <th>商品名</th>
-                <th>税抜価格</th>
-                <th>ジャンル</th>
-                <th>ステータス</th>
+                <th>単価(税込)</th>
+                <th>数量</th>
+                <th>小径</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-              <% @items.each do |item| %>
-                <tr>
-                  <td><%= item.id %></td>
-                  <td><%= link_to item.name, admin_item_path(item) %></td>
-                  <td><%= number_with_delimiter(item.price, delimiter: ',') %></td>
-                  <td><%= item.genre.name %></td>
-                  <td>
-                    <% if item.is_active %>
-                      <p class="text-success"><strong>販売中</strong></p>
-                    <% else %>
-                      <p class="text-black-50"><strong>販売停止中</strong></p>
-                    <% end %>
-                  </td>
-                </tr>
+              <% @cart_items.each do |cart_item| %>
+                <td><%= cart_item.item.add_tax_price %></td>
               <% end %>
             </tbody>
           </table>
-          <div class="row">
-            <div class="col-lg-5"></div>
-            <div class="col-lg-4">
-              <%= paginate @items %>
-            </div>
-            <div class="col-lg-3"></div>
+        <div class="row">
+          <div class="col-lg-3">
+            
+            
+            
+            <%= link_to "買い物を続ける", _path, class: "btn btn-primary"%>
+            
+            
+            
           </div>
+          <div class="col-lg-5"></div>
+          <div class="col-lg-4">
+            <table class="table table-borderless">
+              <tr>
+                <th>合計金額</th>
+                <td><%= f.file_field :item_image, accept: "image/*" %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
         </div>
         <div class="col-lg-1"></div>
     </div>
 </div>
-
-
-
-
-
-
-<% @cart_items.each do |cart_item| %>
-<td><%= cart_item.item.add_tax_price %></td>
-<% end %>

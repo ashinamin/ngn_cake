@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get "/" => "homes#top"
     get "customers/unsubscribe" => "customers#unsbscribe"
     get "customers/withdraw" => "customers#withdraw"
-    get "cart_items/destroy_all" => "cart_items#destroy_all"
+    delete "cart_items/destroy_all" => "cart_items#destroy_all"
     get "orders/confirm" => "orders#confirm"
     get "orders/thanks" => "orders#thanks"
     #resources :registrations, only: [:new, :create]
