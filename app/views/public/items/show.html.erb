@@ -2,7 +2,7 @@
     <div class="row"></div>
     <div class="row">
       <div class='col-lg-3'>
-
+        <%= render 'genre', genres: @genres %>
       </div>
       <div class="col-lg-4">
         <%= image_tag @item.get_item_image(250,250) %>
@@ -10,13 +10,13 @@
       <div class="col-lg-5">
         <strong><%= @item.name %></strong><br>
         <%= @item.introduction %><br>
-        <strong>¥<%= number_with_delimiter(@item.add_tax_price, delimiter: ',') %></strong>(税込)
-        <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
-          <%= f.hidden_field :item, :value => @item.name %>
-          <%= f.hidden_field :item, :value =>  number_with_delimiter(@item.price, delimiter: ',') %>
-          <%= f.select :cart_item, *[1..10, include_blank: "個数選択"] %>
-          <%= f.submit "カートに入れる", class: "btn btn-success" %>
-        <% end %>
+          <strong>¥<%= number_with_delimiter(@item.add_tax_price, delimiter: ',') %></strong>(税込)
+          <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+            <%= f.hidden_field :customer_id, value: current_customer.id %>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.select :amount, *[1..10, include_blank: "個数選択"] %>
+            <%= f.submit "カートに入れる", class: "btn btn-success" %>
+          <% end %>
       </div>
     </div>
 </div>
