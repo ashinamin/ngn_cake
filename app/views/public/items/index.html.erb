@@ -2,7 +2,7 @@
     <!--<div class="row"></div>-->
     <div class="row">
       <div class='col-lg-3'>
-      <p>ジャンル検索が入ります</p>
+        <%= render 'genre', genres: @genres %>
       </div>
       <div class='col-lg-9'>
         <h4><strong>商品一覧</strong>(全<%= @items.count %>件)</h4>
