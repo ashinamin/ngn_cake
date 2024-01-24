@@ -1,4 +1,4 @@
-<%= form_with model: @order, url: 'orders_show_path', method: :post, local: true do |f| %>
+<%= form_with model: @order, url: orders_show_path, method: :post, local: true do |f| %>
 <div class='container mt-4'>
   <div class='row'>
     <div class='col-lg-1'></div>
@@ -16,17 +16,19 @@
       </tr>
     </thead>
     <tbody>
+<% @orders.each do |order| %>
       <tr>
-        <td><%= @orders.created_at.strftime('%Y/%m/%d') %></td>
-        <td><%= @orders.postal_code %></br>
-            <%= @orders.address %></td>
-        <td><%= @orders.items.name %></td>
+        <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+        <td><%= order.postal_code %></br>
+            <%= order.address %></td>
+        <td><%= order.items.name %></td>
         <td><% subtotal = ((order_derails.price*cart_items.quantity)*1.08).to_i %>
           <%= subtotal %>
         </td>
-        <td><%= @orders.status %></td>
-        <td><%= link_to %></td>
+        <td><%= order.status %></td>
+        <td><%= link_to "表示する", orders_path(order.id), class: "btn btn-sm btn-success" %></td>
       </tr>
+<% end %>
     </tbody>
   </table>
 </div>

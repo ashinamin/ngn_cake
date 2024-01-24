@@ -42,14 +42,14 @@
             <% end %>
           </li>
           <li type="button" class="btn btn-outline-secondary m-2">
-            <%#= link_to item_path,class: 'nav-link text-dark' do %>
+            <%= link_to items_path,class: 'nav-link text-dark' do %>
               商品一覧
-            <%# end %>
+            <% end %>
           </li>
           <li type="button" class="btn btn-outline-secondary m-2">
-            <%#= link_to cart_item_path,class: 'nav-link text-dark' do %>
+            <%= link_to cart_items_path,class: 'nav-link text-dark' do %>
               カート
-            <%# end %>
+            <% end %>
           </li>
           <li type="button" class="btn btn-outline-secondary m-2">
             <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-dark' do %>

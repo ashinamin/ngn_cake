@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     get "customers/unsubscribe" => "customers#unsbscribe"
     get "customers/withdraw" => "customers#withdraw"
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
-    get "orders/confirm" => "orders#confirm"
+    #get "orders/confirm" => "orders#confirm"
     get "orders/thanks" => "orders#thanks"
     get "customers/my_page" => "customers#show"
     get "customers/information/edit" => "customers#edit"
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     #resources :customers, only: [:show, :edit, :update]
     resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :orders, only: [:new, :index, :show, :create]
+      post "orders/confirm" => "orders#confirm"
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :customers do
      collection do
