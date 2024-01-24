@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
  devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -27,8 +27,8 @@ Rails.application.routes.draw do
     get "about" => "homes#about"
     get "customers/unsubscribe" => "customers#unsbscribe"
     get "customers/withdraw" => "customers#withdraw"
-    get "cart_items/destroy_all" => "cart_items#destroy_all"
-    get "orders/confirm" => "orders#confirm"
+    delete "cart_items/destroy_all" => "cart_items#destroy_all"
+    #get "orders/confirm" => "orders#confirm"
     get "orders/thanks" => "orders#thanks"
     get "customers/my_page" => "customers#show"
     get "customers/information/edit" => "customers#edit"
@@ -36,11 +36,11 @@ Rails.application.routes.draw do
     #resources :registrations, only: [:new, :create]
     #resources :sessions, only: [:new, :create, :destroy]
     resources :items, only: [:index, :show]
-    # resources :customers, only: [:show, :edit, :update]
-    resources :cart_items, only: [:index, :update, :destroy]
+    #resources :customers, only: [:show, :edit, :update]
+    resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :orders, only: [:new, :index, :show, :create]
+      post "orders/confirm" => "orders#confirm"
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-
     resources :customers do
      collection do
        get 'confirm_withdraw'
