@@ -2,24 +2,26 @@ class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
   def new
     @order = Order.new
-    @addresses = currnet_customer.addresses.all
+    @orders = current_customer
+    @addresses = current_customer.addresses.all
   end
 
   def confirm
     @order = Order.new(order_params)
     if params[:order][:address_option] == "0"
-      @order.customer_postal_code = current_customer.postal_code
-      @order.customer_address = current_customer.address
-      @order.customer_name = current_customer.last_name + current_customer.first_name
+      @order.postal_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:address_option] == "1"
-      order = Order.find(params[:order][:customer_id])
-      @order.customer_postal_code = customer.post_code
-      @order.customer_address = customer.address
-      @order.customer_name = customer.ship.name
+      customer = current_customer
+      order = Address.find(params[:order][:customer_id])
+      @order.postal_code = customer.postal_code
+      @order.address = customer.address
+      @order.name = customer.address.name
     elsif params[:order][:address_option] = "2"
-      @order.customer_postal_code = params[:order][:customer_postal_code]
-      @order.customer_address = params[:order][:customer_address]
-      @order.customer_name = params[:order][:customer_name]
+      @order.postal_code = params[:order][:postal_code]
+      @order.address = params[:order][:address]
+      @order.name = params[:order][:name]
     else
       render 'new'
     end
@@ -31,6 +33,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(order_params)
+    @order.save
   end
 
   def index
@@ -42,7 +46,7 @@ class Public::OrdersController < ApplicationController
   end
   
   def order_params
-    params.require(:order).permit(:postage, :payment_method, :customer_name, :customer_address, :customer_postal_code, :customer_id, :total_payment, :status)
+    params.require(:order).permit(:postage, :payment_method, :name, :address, :postal_code, :customer_id, :total_payment, :status)
   end
   
 end

@@ -1,5 +1,4 @@
-
-<%= form_with model: @order, url: 'public_orders_path', method: :post, local: true do |f| %>
+<%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
 <div class='container mt-4'>
   <div class='row'>
     <div class='col-lg-1'></div>
@@ -39,28 +38,28 @@
             <%= f.radio_button :address_option, 0, checked: "checked" %>
             <%= f.label :order_address, "ご自身の住所" %>
           </br>
-            〒<%= current_customer.post_code %>
+            〒<%= current_customer.postal_code %>
               <%= current_customer.address %></br>
-              <%= current_customer.last_name %><%= current_costomer.first_name %>
+              <%= current_customer.last_name %><%= current_customer.first_name %>
             
             <%= f.radio_button :address_option, 1 %>
             <%= f.label :order_address, "登録済住所から選択" %>
           </br>
-              <%= f.collection_select :customer_id, @addresses, :id, :full_adresses %> 
+              <%= f.collection_select(:customer_id, current_customer.addresses.all, :id, :address) %> 
           </td>
             <%= f.radio_button :address_option, 2 %>
             <%= f.label :order_address, "新しいお届け先" %>
           <tr>
-            <td><%= f.label :customer_postal_code, "郵便番号(ハイフンなし)" %></td>
-            <td><%= f.text_field :customer_postal_code %></td>
+            <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+            <td><%= f.text_field :postal_code %></td>
           </tr>
           <tr>
-            <td><%= f.label :customer_address, "住所" %></td>
-            <td><%= f.text_fiels :customer_address %></td>
+            <td><%= f.label :address, "住所" %></td>
+            <td><%= f.text_field :address %></td>
           </tr>
           <tr>
-            <td><%= f.label :customer_name, "宛名" %></td>
-            <td><%= f.text_field :customer_name %></td>
+            <td><%= f.label :name, "宛名" %></td>
+            <td><%= f.text_field :name %></td>
           </tr>
         </tr>
       </tbody>
