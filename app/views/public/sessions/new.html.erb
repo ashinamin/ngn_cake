@@ -6,32 +6,49 @@
   </div>
   <div class='row'>
     <div class='col-lg-1'></div>
-      <h6><span style="background-color: rgb(220, 220, 220);">会員の方はこちらからログイン</span></h6>
+      <span style="background-color: rgb(220, 220, 220);">会員の方はこちらからログイン</span>
   </div>
 
   <div class='row'>
-    <div class='col-lg-3'>
+    <div class="mx-auto">
+      <div class="p-4">
+        <table class="table table-borderless">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email, "メールアドレス" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %>
-      </div>
-      <div class="field">
-        <%= f.label :password, "パスワード" %>
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-      </br>
-      <div class="actions">
-        <%= f.submit "ログイン" ,class: 'btn btn-primary' %>
+      <tr>
+        <div class="field">
+        <td><%= f.label :email, "メールアドレス" %></td>
+        <td><%= f.email_field :email, placeholder:"sample@example.com" %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="field">
+        <td><%= f.label :password, "パスワード" %></td>
+        <td><%= f.password_field :password %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="actions">
+        <td></td>
+        <td><%= f.submit "ログイン" ,class: 'btn btn-primary' %></td>
+        </div>
+      </tr>
+        </table>
       </div>
       <% end %>
     </div>
   </div>
 
-</br>
-</br>
-会員登録がお済みでない方<br>
-<%= render "public/shared/links" %>から新規登録を行ってください。
-
+  <div class='row'>
+    <div class='col-lg-1'></div>
+      <h6><span style="background-color: rgb(220, 220, 220);">会員登録がお済みでない方</span></h6>
   </div>
+  <div class='row'>
+    <div class='col-lg-2'></div>
+      <%= render "public/shared/links" %>から新規登録を行ってください。
+  </div>
+
+</br>
+</br>
+</br>
+
 </div>
