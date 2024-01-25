@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-lg-3">
       <div class="mt-4">
-        <%= render "items/genre", genres: @genres %>
+        <%= render "public/items/genre", genres: @genres %>
       </div>
     </div>
-    
+
     <div class="col-lg-9">
       <div class="py-5">
         <div class="row">
@@ -18,26 +18,30 @@
           </span>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="">
           <h3>新着商品</h3>
         </div>
       </div>
-    
+
       <div class="row">
         <% @new_items.each do |item| %>
           <div class="col-lg-3">
             <table>
               <tr>
                 <td>
-                  <%= link_to admin_item_path(@item.id) do %>
+                  <%= link_to item_path(@item) do %>
                     <%= image_tag item.get_item_image(100,80) %>
                   <% end %>
                 </td>
               </tr>
               <tr>
-                <td><%= item.name %></td>
+                <td>
+                  <%= link_to item_path(@item) do %>
+                    <%= item.name %>
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td>￥<%= item.price %></td>
@@ -46,7 +50,7 @@
           </div>
         <% end %>
       </div>
-      
+
         <div class="py-3">
         <div class="row">
           <div class="col-9"></div>
@@ -54,8 +58,8 @@
         </div>
         </div>
       </div>
-      
-      
+
+
     </div>
   </div>
 </div>
