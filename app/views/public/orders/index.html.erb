@@ -26,6 +26,7 @@
             <%= order_detail.item.name %>
             <% end %>
         </td>
+        <td><%= order.payment_method_i18n %></td>
       <%= form_with model: order, url: orders_path, method: :post, local: true do |f| %>
         <td><%= order.status %></td>
         <td><%= link_to "表示する", order_path(order.id), class: "btn btn-sm btn-success" %></td>
