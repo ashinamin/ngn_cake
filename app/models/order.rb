@@ -1,5 +1,11 @@
 class Order < ApplicationRecord
+<<<<<<< HEAD
+
+
+
+=======
   belongs_to :customer
+>>>>>>> f7f9fe52bd726a61ea1d27f1eb76a5d92e99933b
   has_many :ordered_items
   has_many :items, through: :ordered_items
   has_many :order_details, dependent: :destroy
