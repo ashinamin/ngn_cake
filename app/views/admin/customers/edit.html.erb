@@ -58,7 +58,7 @@
 
         <tr>
           <th></th>
-          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+          <td><%= f.submit "変更を保存", class:"btn btn-success" , data: { confirm: "本当に変更しますか？"} %></td>
         </tr>
       </table>
     <% end %>
