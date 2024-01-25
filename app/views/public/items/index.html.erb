@@ -12,17 +12,21 @@
                 <%= link_to item_path(item) do %>
                   <%= image_tag item.get_item_image(130,130) %><br>
                   <%= item.name %><br>
-                  ¥<%= number_with_delimiter(item.price, delimiter: ',') %>
                 <% end %>
+                <% if item.is_active %>
+                  ¥<%= number_with_delimiter(item.price, delimiter: ',') %>
+                <% else %>
+                  <P>販売停止中</P>
+                <% end %>  
               </div>
           <% end %>
         </div>
         <div class="row">
-          <div class="col-lg-5"></div>
+          <div class="col-lg-4"></div>
           <div class="col-lg-4">
             <%= paginate @items %>
           </div>
-          <div class="col-lg-3"></div>
+          <div class="col-lg-4"></div>
         </div>
       </div>
     </div>
