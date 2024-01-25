@@ -1,9 +1,9 @@
 <div class="container">
   <dic class="row">
     <div class="col">
-      
+
         <h4>会員一覧</h4>
-      
+
       <table class="table">
         <thead>
           <tr>
@@ -24,6 +24,8 @@
           </tbody>
         <% end %>
       </table>
+
+      <%= paginate @customers %>
     </div>
   </div>
 </div>
