@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
 
   root :to =>"public/homes#top"
+  get "search" => "searchs#search"
 
   namespace :admin do
     get "/" => "homes#top"
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
     #resources :customers, only: [:show, :edit, :update]
     resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :orders, only: [:new, :index, :show, :create]
+      patch :update_status
       post "orders/confirm" => "orders#confirm"
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :customers do
