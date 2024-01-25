@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-
   has_one_attached :item_image
   has_many :care_items, dependent: :destroy
   has_many :order_details
