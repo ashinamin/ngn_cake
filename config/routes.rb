@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   scope module: :public do
     get "/" => "homes#top"
     get "about" => "homes#about"
-    get "customers/unsubscribe" => "customers#unsbscribe"
+    get "customers/unsubscribe" => "customers#unsubscribe"
     get "customers/withdraw" => "customers#withdraw"
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
     #get "orders/confirm" => "orders#confirm"
