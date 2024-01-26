@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     #resources :customers, only: [:show, :edit, :update]
     resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :orders, only: [:new, :index, :show, :create]
+      patch :update_status
       post "orders/confirm" => "orders#confirm"
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :customers do
