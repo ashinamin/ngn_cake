@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
 
   root :to =>"public/homes#top"
+  get "search" => "searchs#search"
 
   namespace :admin do
     get "/" => "homes#top"
