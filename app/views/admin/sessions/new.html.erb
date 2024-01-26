@@ -1,29 +1,43 @@
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
-<h2>管理者ログイン</h2>
+<div class='container my-4'>
+
+  <div class='row mb-2'>
+    <div class='col-lg-1'></div>
+      <h4><span style="background-color: rgb(220, 220, 220);">&emsp;管理者ログイン&emsp;</span></h4>
+    </div>
+
+<div class='row'>
+    <div class="mx-auto">
+      <div class="p-4">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<table class="table table-borderless">
+  <tr>
   <div class="field">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %>
+    <td><%= f.label :email, "メールアドレス" %></td>
+    <td><%= f.email_field :email, size: 30, placeholder:"sample@example.com" %></td>
   </div>
+  </tr>
 
+  <tr>
   <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password, autocomplete: "current-password"%>
+    <td><%= f.label :password, "パスワード" %></td>
+    <td><%= f.password_field :password, size: 30 %></td>
   </div>
+  </tr>
 
-<p id="notice"></p>
-
+  <tr>
   <div class="actions">
-    <%= f.submit "ログイン" ,class: 'btn btn-primary'%>
+    <td></td>
+    <td><%= f.submit "ログイン" ,class: 'btn btn-primary'%></td>
   </div>
+  </tr>
 
+</table>
 <% end %>
 
 <%= render "admin/shared/links" %>
 
     </div>
   </div>
+</div>
 </div>

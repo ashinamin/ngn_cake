@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-lg-3">
       <div class="mt-4">
-        <P>ジャンルが入る</P>
-        <%#= render "", %>
+        <%= render "public/items/genre", genres: @genres %>
       </div>
     </div>
 
@@ -21,9 +20,9 @@
       </div>
 
       <div class="row">
-        <div class="">
+
           <h3>新着商品</h3>
-        </div>
+
       </div>
 
       <div class="row">
@@ -31,10 +30,18 @@
           <div class="col-lg-3">
             <table>
               <tr>
-                <td><%= image_tag item.get_item_image(100,80) %></td>
+                <td>
+                  <%= link_to item_path(item.id) do %>
+                    <%= image_tag item.get_item_image(100,80) %>
+                  <% end %>
+                </td>
               </tr>
               <tr>
-                <td><%= item.name %></td>
+                <td>
+                  <%= link_to item_path(item.id) do %>
+                    <%= item.name %>
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td>￥<%= item.price %></td>
@@ -47,7 +54,7 @@
         <div class="py-3">
         <div class="row">
           <div class="col-9"></div>
-            <%= link_to "すべての商品を見る>", items_path %>
+            <%= link_to "すべての商品を見る>", admin_items_path %>
         </div>
         </div>
       </div>
