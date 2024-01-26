@@ -9,6 +9,9 @@ class Admin::OrderDetailsController < ApplicationController
       order.update(status:"making")
     end
 
+    if is_all_order_datails_making_completed(order)
+      order.update(status: 'shipping_in_process')
+    end
 
     flash[:notice] = "更新に成功しました。"
     redirect_to admin_order_path(@order_detail.order.id)
