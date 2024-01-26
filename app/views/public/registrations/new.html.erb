@@ -8,21 +8,16 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 <div class='row'>
+  <div class="col-10">
 <table>
-  <tr>
-    <th tyle="width: 40%"></th>
-    <th tyle="width: 10%"></th>
-    <th tyle="width: 10%"></th>
-    <th tyle="width: 10%"></th>
-    <th tyle="width: 10%"></th>
-  </tr>
+
   <tr>
   <div class="field">
-    <td>名前</td>
-    <td><%= f.label :last_name, '(姓)' %></td>
-    <td><%= f.text_field :last_name %></td>
-    <td><%= f.label :first_name, '(名)' %></td>
-    <td><%= f.text_field :first_name %></td>
+    <td style="width: 30%">名前</td>
+    <td style="width: 10%"><%= f.label :last_name, '(姓)' %></td>
+    <td style="width: 20%"><%= f.text_field :last_name %></td>
+    <td style="width: 10%"><%= f.label :first_name, '(名)' %></td>
+    <td style="width: 20%"><%= f.text_field :first_name %></td>
     <!--<td style="width: 40%"></td>-->
   </div>
   </tr>
@@ -95,16 +90,18 @@
     <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
   </div>
   </tr>
-
 </table>
 </div>
+</div>
 <% end %>
+
 </br>
 <div class='row'>
       <h4><span style="background-color: rgb(220, 220, 220);">&emsp;既に登録済みの方&emsp;</span></h4>
     </div>
 </br>
-
+<div class="row mb-3">
+  <div class="col-1"></div>
 <%= render "public/shared/links" %>からログインしてください。
-
+</div>
 </div>
