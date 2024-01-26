@@ -9,7 +9,7 @@ class Admin::OrderDetailsController < ApplicationController
       order.update(status:"making")
     end
 
-    if is_all_order_datails_making_completed(order)
+    if is_all_order_details_making_completed(order)
       order.update(status: 'shipping_in_process')
     end
 
