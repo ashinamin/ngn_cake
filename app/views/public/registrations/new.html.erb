@@ -7,9 +7,15 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-
 <div class='row'>
 <table>
+  <tr>
+    <th tyle="width: 40%"></th>
+    <th tyle="width: 10%"></th>
+    <th tyle="width: 10%"></th>
+    <th tyle="width: 10%"></th>
+    <th tyle="width: 10%"></th>
+  </tr>
   <tr>
   <div class="field">
     <td>名前</td>
@@ -17,6 +23,7 @@
     <td><%= f.text_field :last_name %></td>
     <td><%= f.label :first_name, '(名)' %></td>
     <td><%= f.text_field :first_name %></td>
+    <!--<td style="width: 40%"></td>-->
   </div>
   </tr>
 
@@ -33,6 +40,7 @@
   <tr>
 　<div class="field">
 　  <td>メールアドレス</td>
+　  <td></td>
     <td><%= f.email_field :email %></td>
   </div>
   </tr>
@@ -40,6 +48,7 @@
   <tr>
   <div class="field">
     <td>郵便番号(ハイフンなし)</td>
+    <td></td>
     <td><%= f.text_field :postal_code %></td>
   </div>
   </tr>
@@ -47,13 +56,15 @@
   <tr>
   <div class="field">
     <td>住所</td>
-    <td><%= f.text_field :address %></td>
+    <td></td>
+    <td colspan="2"><%= f.text_field :address, size: 50 %></td>
   </div>
   </tr>
 
   <tr>
   <div class="field">
     <td>電話番号(ハイフンなし)</td>
+    <td></td>
     <td><%= f.text_field :telephone_number %></td>
   </div>
   </tr>
@@ -64,6 +75,7 @@
     <!--<% if @minimum_password_length %>-->
     <!--<em>(<%= @minimum_password_length %> characters minimum)</em>-->
     <!--<% end %><br />-->
+    <td></td>
     <td><%= f.password_field :password %></td>
   </div>
   </tr>
@@ -71,6 +83,7 @@
   <tr>
   <div class="field">
     <td>パスワード確認用</td>
+    <td></td>
     <td><%= f.password_field :password_confirmation %></td>
   </div>
   </tr>
@@ -78,13 +91,13 @@
   <tr>
   <div class="actions">
     <td></td>
+    <td></td>
     <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
   </div>
   </tr>
 
 </table>
 </div>
-
 <% end %>
 </br>
 <div class='row'>
