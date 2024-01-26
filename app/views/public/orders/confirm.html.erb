@@ -30,6 +30,7 @@
         <% end %>
       </table>
     </div>
+        <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
     <div class='col-3'>
       <table class='table table-bordered border-dark'>
         <% @order.shipping_cost = 800 %>
@@ -54,7 +55,9 @@
             <table class="table table-borderless">
                 <tr><th class="col-1">支払い方法</th><td class="col-10"><%= @order.payment_method_i18n %></td></tr>
                 <tr><th class="col-1">お届け先</th><td class="col-10">
-                <%= @order.postal_code %>
+                <%= @order.postal_code %></br>
+                <%= f.hidden_field :postal_code, :value => @order.postal_code %>
+                
                 <%= @order.address %>
                 <%= @order.name %>
                 </td></tr>
@@ -62,7 +65,7 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+
             <%= f.hidden_field :customer_id %>
             <%= f.hidden_field :shipping_cost %>
             <%= f.hidden_field :total_payment %>
