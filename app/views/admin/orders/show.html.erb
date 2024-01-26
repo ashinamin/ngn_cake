@@ -23,7 +23,6 @@
         <th></th>
         <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
       </tr>
-
       <tr>
         <th>支払方法</th>
         <td><%= @order.payment_method %></td>
@@ -34,8 +33,7 @@
         <td>
           <%= form_with model:@order, url:admin_order_path, local: true do |f| %>
           <%= f.select :status, Order.statuses.keys.map { |k| [I18n.t("enums.order.status.#{k}"), k] } %>
-          <%#= f.select :カラム名, モデル名.enum名s.keys.map {|k| [I18n.t("enums.モデル名.enum名.#{k}"), k]} %>
-            <%#=f.select :status, ["入金待ち","入金確認","製作中","発送準備中","発送済み"]%>
+
             <%= f.submit "更新", class: 'btn btn-primary' %>
           <% end %>
         </td>
@@ -64,7 +62,7 @@
           <td>
             <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
               <%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
-              <%#= f.select :making_status, ["着手不可","製作待ち","製作中","製作完了"]%>
+
               <%= f.submit "更新", class: 'btn btn-primary' %>
             <% end %>
           </td>
@@ -84,6 +82,5 @@
       <strong>請求金額合計</strong>
       <%= @order.total_payment.to_s(:delimited) %>円
     </p>
-
   </div>
 </div>
