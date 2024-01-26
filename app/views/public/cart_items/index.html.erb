@@ -1,7 +1,6 @@
 <div class="container mt-4 mb-4">
     <div class="row">
-      <div class='col-lg-1'></div>
-      <div class="col-lg-3">
+      <div class="col-lg-4">
         <h4><span style="background-color: rgb(220, 220, 220);">ショッピングカート</span></h4>
       </div>
       <div class="col-lg-6"></div>
@@ -12,17 +11,17 @@
       </div>
     </div>
     <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
+        <div class="col-lg-12">
           <% if @cart_items.any? %>
-                <table class='table mt-4 mb-4'>
+                <table class='table mt-4 mb-4', border=3 rules="all">
+                  <thead>
                   <thead style="background-color: rgb(220, 220, 220);">
                     <tr>
                       <th>商品名</th>
-                      <th>単価(税込)</th>
-                      <th>数量</th>
-                      <th>小計</th>
-                      <th></th>
+                      <th style="width: 14%">単価(税込)</th>
+                      <th style="width: 14%">数量</th>
+                      <th style="width: 14%">小計</th>
+                      <th style="width: 14%"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -41,19 +40,23 @@
                         <td><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger", data: { confirm: "本当に削除しますか？"} %></td>
                       </tr>
                     <% end %>
-                    <tr>
-                      <th>合計金額</th>
-                      <td><%= number_with_delimiter(@cart_items.sum { |cart_item| cart_item.subtotal }, delimiter: ',') %></td>
-                    </tr>
                   </tbody>
                 </table>
               <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                   <%= link_to "買い物を続ける", root_path, class: "btn btn-primary"%>
                 </div>
-                <div class="col-lg-9"></div>
+                <div class="col-lg-5"></div>
+                <div class="col-lg-3">
+                  <table border=3>
+                    <tr>
+                      <th style="background-color: rgb(220, 220, 220);">合計金額</th>
+                      <td ><%= number_with_delimiter(@cart_items.sum { |cart_item| cart_item.subtotal }, delimiter: ',') %></td>
+                    </tr>
+                  </table>
+                </div>
               </div>
-              <div class="row">
+              <div class="row mt-4">
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4">
                     <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %>
@@ -64,6 +67,5 @@
             <strong>カード内は空です</strong>
           <% end %>
         </div>
-        <div class="col-lg-1"></div>
     </div>
 </div>
