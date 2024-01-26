@@ -8,15 +8,14 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
-<div class='row'>
 <table>
   <tr>
   <div class="field">
-    <td>名前</td>
-    <td><%= f.label :last_name, '(姓)' %></td>
-    <td><%= f.text_field :last_name %></td>
-    <td><%= f.label :first_name, '(名)' %></td>
-    <td><%= f.text_field :first_name %></td>
+    <td style="width: 20%">名前</td>
+    <td style="width: 3%"><%= f.label :last_name, '(姓)' %></td>
+    <td style="width: 3%"><%= f.text_field :last_name %></td>
+    <td style="width: 10%"><%= f.label :first_name, '(名)' %></td>
+    <td style="width: 10%"><%= f.text_field :first_name %></td>
   </div>
   </tr>
 
@@ -33,28 +32,36 @@
   <tr>
 　<div class="field">
 　  <td>メールアドレス</td>
+　  <td></td>
     <td><%= f.email_field :email %></td>
+    <td></td>
   </div>
   </tr>
 
   <tr>
   <div class="field">
     <td>郵便番号(ハイフンなし)</td>
+    <td></td>
     <td><%= f.text_field :postal_code %></td>
+    <td></td>
   </div>
   </tr>
 
   <tr>
   <div class="field">
     <td>住所</td>
-    <td><%= f.text_field :address %></td>
+    <td></td>
+    <td colspan="2"><%= f.text_field :address, size: 50 %></td>
+    <td></td>
   </div>
   </tr>
 
   <tr>
   <div class="field">
     <td>電話番号(ハイフンなし)</td>
+    <td></td>
     <td><%= f.text_field :telephone_number %></td>
+    <td></td>
   </div>
   </tr>
 
@@ -64,26 +71,31 @@
     <!--<% if @minimum_password_length %>-->
     <!--<em>(<%= @minimum_password_length %> characters minimum)</em>-->
     <!--<% end %><br />-->
+    <td></td>
     <td><%= f.password_field :password %></td>
+    <td></td>
   </div>
   </tr>
 
   <tr>
   <div class="field">
     <td>パスワード確認用</td>
+    <td></td>
     <td><%= f.password_field :password_confirmation %></td>
+    <td></td>
   </div>
   </tr>
 
   <tr>
   <div class="actions">
     <td></td>
+    <td></td>
     <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+    <td></td>
   </div>
   </tr>
 
 </table>
-</div>
 
 <% end %>
 </br>
