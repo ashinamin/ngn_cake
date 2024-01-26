@@ -22,10 +22,11 @@
       <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
       <td><%= order.order_details.sum(:amount) %></td>
       <td>
-        <%= order.status %>
+        <%= order.status_i18n %>
       </td>
     </tr>
   <% end %>
  </tbody>
 </table>
+<%= paginate @orders %>
 </div>
