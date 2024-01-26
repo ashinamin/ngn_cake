@@ -1,24 +1,54 @@
-<h2>ログイン</h2>
-会員の方はこちらからログイン
+<div class='container mt-4'>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %>
+  <div class='row mb-4'>
+    <div class='col-lg-1'></div>
+      <h4><span style="background-color: rgb(220, 220, 220);">&emsp;ログイン&emsp;</span></h4>
+    </div>
+  <div class='row'>
+    <div class='col-lg-1'></div>
+      <span style="background-color: rgb(220, 220, 220);">会員の方はこちらからログイン</span>
   </div>
 
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class='row'>
+    <div class="mx-auto">
+      <div class="p-4">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <table class="table table-borderless">
+      <tr>
+        <div class="field">
+        <td><%= f.label :email, "メールアドレス" %></td>
+        <td><%= f.email_field :email, placeholder:"sample@example.com", size: 30 %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="field">
+        <td><%= f.label :password, "パスワード" %></td>
+        <td><%= f.password_field :password, size: 30  %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="actions">
+        <td></td>
+        <td><%= f.submit "ログイン" ,class: 'btn btn-primary' %></td>
+        </div>
+      </tr>
+        </table>
+      <% end %>
+      </div>
+    </div>
   </div>
 
-  </br>
-
-  <div class="actions">
-    <%= f.submit "ログイン" ,class: 'btn btn-primary' %>
+  <div class='row'>
+    <div class='col-lg-1'></div>
+      <h6><span style="background-color: rgb(220, 220, 220);">会員登録がお済みでない方</span></h6>
   </div>
-<% end %>
+  <div class='row'>
+    <div class='col-lg-2'></div>
+      <%= render "public/shared/links" %>から新規登録を行ってください。
+  </div>
+
 </br>
 </br>
-会員登録がお済みでない方<br>
-<%= render "public/shared/links" %>から新規登録を行ってください。
+</br>
+
+</div>
