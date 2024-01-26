@@ -13,11 +13,10 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:address_option] == "1"
-      customer = current_customer
       order = Address.find(params[:order][:customer_id])
-      @order.postal_code = customer.postal_code
-      @order.address = customer.address
-      @order.name = customer.address.name
+      @order.postal_code = order.postal_code
+      @order.address = order.address
+      @order.name = order.name
     elsif params[:order][:address_option] = "2"
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
@@ -36,7 +35,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
-    
+
     current_customer.cart_items.each do |cart_item|
       @order_detail = OrderDetail.new
       @order_detail.item_id = cart_item.item_id
@@ -50,16 +49,16 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders.all#.page(params[:page]).per(6).order(‘created_at DESC’)
+    @orders = current_customer.orders.all
   end
 
   def show
-    @order = current_customer.orders.find(params[:id])
+    @order = Order.find(params[:id])
     @order_details = @order.order_details.all
   end
-  
+
   def order_params
     params.require(:order).permit(:shipping_cost, :payment_method, :name, :address, :postal_code, :customer_id, :total_payment, :status)
   end
-  
+
 end
