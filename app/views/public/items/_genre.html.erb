@@ -1,3 +1,10 @@
+<style>
+  .table td{border-style:none;}
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-10">
 <table class="table table-bordered" >
   <thead>
     <tr>
@@ -5,8 +12,14 @@
     </tr>
   </thead>
   <tbody>
-    <% genres.each do |genre| %>
-    <%= genre.name %>
-    <% end %>
+    <tr>
+    <td><% genres.each do |genre| %>
+    <div><%= genre.name %></div>
+    <% end %></td>
+    </tr>
   </tbody>
 </table>
+
+</div>
+</div>
+</div>
