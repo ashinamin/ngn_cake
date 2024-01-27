@@ -58,7 +58,7 @@
       <% @order_details.each do |order_detail| %>
       <tbody>
         <tr>
-          <td><%= order_detail.item.name %></td>
+          <td style="height: 10px"><%= order_detail.item.name %></td>
           <td><%= (order_detail.price.floor*1.1).floor.to_s(:delimited) %></td>
           <td><%= order_detail.amount %></td>
           <td><%= ((order_detail.price * order_detail.amount*1.1).floor).to_s(:delimited) %></td>
