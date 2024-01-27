@@ -1,0 +1,33 @@
+<div class="container mt-4 mb-4">
+    <!--<div class="row"></div>-->
+    <div class="row">
+      <div class='col-lg-3'>
+        <%= render 'genre', genres: @genres %>
+      </div>
+      <div class='col-lg-9'>
+        <h4><strong>商品一覧</strong>(全<%= @items.count %>件)</h4>
+        <div class="row">
+          <% @items.each do |item| %>
+              <div class="col-lg-3">
+                <%= link_to item_path(item) do %>
+                  <%= image_tag item.get_item_image(130,130) %><br>
+                  <%= item.name %><br>
+                <% end %>
+                <% if item.is_active %>
+                  ¥<%= number_with_delimiter(item.price, delimiter: ',') %>
+                <% else %>
+                  <P class="text-danger">販売停止中</P>
+                <% end %>
+              </div>
+          <% end %>
+        </div>
+        <div class="row mt-5">
+          <div class="col-lg-4"></div>
+          <div class="col-lg-4">
+            <%= paginate @items %>
+          </div>
+          <div class="col-lg-4"></div>
+        </div>
+      </div>
+    </div>
+</div>
