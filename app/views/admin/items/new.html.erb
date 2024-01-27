@@ -1,3 +1,10 @@
+<style>
+  .box select{
+    width: 270px;
+  }
+</style>
+
+
 <div class="container mt-4 mb-4">
     <div class="row">
         <div class='col-lg-1'></div>
@@ -15,19 +22,19 @@
                 </tr>
                 <tr>
                   <th>商品名</th>
-                  <td><%= f.text_field :name, placeholder: "商品名" %></td>
+                  <td><%= f.text_field :name, size: 30, placeholder: "商品名" %></td>
                 </tr>
                 <tr>
                   <th>商品説明</th>
-                  <td><%= f.text_area :introduction, rows: '5', placeholder: "ここに説明文を記述します" %></td>
+                  <td><%= f.text_area :introduction, rows: 5, cols: 29, placeholder: "ここに説明文を記述します" %></td>
                 </tr>
                 <tr>
                   <th>ジャンル</th>
-                  <td><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "-- 選択してください --" %></td>
+                  <td class="box select"><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "-- 選択してください --" %></td>
                 </tr>
                 <tr>
                   <th>税抜価格</th>
-                  <td><%= f.text_field :price, placeholder: "1000" %>円</td>
+                  <td><%= f.text_field :price, size: 30, placeholder: "1000" %>円</td>
                 </tr>
                 <tr>
                   <th>販売ステータス</th>
@@ -35,7 +42,7 @@
                 </tr>
                 <tr>
                   <td></td>
-                  <td><%= f.submit @submit_label, class: "btn btn-success" %></td>
+                    <td><%= f.submit @submit_label, class: "btn btn-success w-50" %></td>
                 </tr>
               </table>
             <% end %>
