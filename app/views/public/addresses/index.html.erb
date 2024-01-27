@@ -5,48 +5,48 @@
   <h4><span style="background-color: rgb(220, 220, 220);">配送先登録/一覧</span></h4>
   </div>
   <div class="row mt-4">
+    <div class='col-lg-8'>
     <table>
       <tr>
-        <th></th>
-        <th></th>
-      </tr>
-      <tr>
-        <th>郵便番号(ハイフンなし)</th>
+        <td>郵便番号(ハイフンなし)</td>
         <td><%= f.text_field :postal_code %></td>
       </tr>
       <tr>
-        <th>住所</th>
-        <td><%= f.text_field :address %></td>
+        <td>住所</td>
+        <td><%= f.text_field :address, size:50 %></td>
       </tr>
       <tr>
-        <th>宛名</th>
+        <td>宛名</td>
         <td><%= f.text_field :name %></td>
-        <td><%= f.submit "新規登録" %></td>
+        <td><%= f.submit "新規登録", class: "btn btn-sm btn-success" %></td>
       </tr>
     </table>
+    </div>
   </div>
 <% end %>
   <div class='row mt-4'>
-    <table class='table table-hover table-inverse'>
+    <div class='col-lg-10'>
+    <table class="table table-bordered">
       <thead>
         <tr>
-          <th>郵便番号</th>
-          <th>住所</th>
-          <th>宛名</th>
-          <th colspan="3"></th>
+          <th class="bg-light">郵便番号</th>
+          <th class="bg-light">住所</th>
+          <th class="bg-light">宛名</th>
+          <th class="bg-light"></th>
         </tr>
       </thead>
 <% @addresses.each do |address| %>
       <tbody>
         <tr>
-          <td><%= address.postal_code %></td>
-          <td><%= address.address %></td>
-          <td><%= address.name %></td>
-          <td><%= link_to "編集", edit_address_path(address.id), class: "btn btn-sm btn-success" %>
-          <%= link_to "削除", address_path(address.id), method: :delete, "data-confirm" => "本当に解除しますか？", class: "btn btn-sm btn-danger", remote: true %></td>
+          <td style="width:10%"><%= address.postal_code %></td>
+          <td style="width:50%"><%= address.address %></td>
+          <td style="width:10%"><%= address.name %></td>
+          <td style="width:20%"><%= link_to "編集する", edit_address_path(address.id), class: "btn btn-sm btn-success" %>
+          <%= link_to "削除する", address_path(address.id), method: :delete, "data-confirm" => "本当に解除しますか？", class: "btn btn-sm btn-danger", remote: true %></td>
         </tr>
       </tbody>
       <% end %>
     </table>
+    </div>
   </div>
 </div>
