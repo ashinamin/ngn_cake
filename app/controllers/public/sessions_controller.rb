@@ -41,9 +41,5 @@ class Public::SessionsController < Devise::SessionsController
     return unless customer.valid_password?(params[:customer][:password])
     redirect_to new_customer_registration_path unless customer.is_active
   end
-  # def customer_state
-  #   customer = Customer.find_by(email: params[:customer][:email])
-  #   return if customer.nil?
-  #   return unless customer.valid_password?(params[:customer][:password])
-  #   redirect_to new_customer_registration_path
+
 end
