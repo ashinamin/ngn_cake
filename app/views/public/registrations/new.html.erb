@@ -13,10 +13,10 @@
 
   <tr>
   <div class="field">
-    <td style="width: 30%">名前</td>
-    <td style="width: 10%"><%= f.label :last_name, '(姓)' %></td>
-    <td style="width: 20%"><%= f.text_field :last_name %></td>
-    <td style="width: 10%"><%= f.label :first_name, '(名)' %></td>
+    <td style="width: 15%">名前</td>
+    <td style="width: 3%"><%= f.label :last_name, '(姓)' %></td>
+    <td style="width: 5%"><%= f.text_field :last_name %></td>
+    <td style="width: 3%"><%= f.label :first_name, '(名)' %></td>
     <td style="width: 20%"><%= f.text_field :first_name %></td>
     <!--<td style="width: 40%"></td>-->
   </div>
@@ -36,7 +36,7 @@
 　<div class="field">
 　  <td>メールアドレス</td>
 　  <td></td>
-    <td><%= f.email_field :email %></td>
+    <td colspan="3"><%= f.email_field :email %></td>
   </div>
   </tr>
 
@@ -52,7 +52,7 @@
   <div class="field">
     <td>住所</td>
     <td></td>
-    <td colspan="2"><%= f.text_field :address, size: 50 %></td>
+    <td colspan="3"><%= f.text_field :address, size: 50 %></td>
   </div>
   </tr>
 
@@ -79,7 +79,7 @@
   <div class="field">
     <td>パスワード確認用</td>
     <td></td>
-    <td><%= f.password_field :password_confirmation %></td>
+    <td colspan="3"><%= f.password_field :password_confirmation %></td>
   </div>
   </tr>
 
