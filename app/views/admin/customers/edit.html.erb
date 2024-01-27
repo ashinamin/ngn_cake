@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-8 my-5">
 
-    <% form_with model: [:admin, @customer] do |f| %>
+    <%= form_with model: [:admin, @customer] do |f| %>
       <table>
         <tr>
           <td>会員ID</td>
@@ -21,8 +21,13 @@
         </tr>
 
         <tr>
+<<<<<<< HEAD
           <td>フリガナ</td>
           <td><%= f.text_field :last_neme_kana %></td>
+=======
+          <th>フリガナ</th>
+          <td><%= f.text_field :last_name_kana %></td>
+>>>>>>> 69d4f9ffb80e80f8113f9620416a86fa7b829b56
           <td><%= f.text_field :first_name_kana %></td>
         </tr>
 
@@ -61,8 +66,13 @@
         </tr>
 
         <tr>
+<<<<<<< HEAD
           <td></td>
           <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+=======
+          <th></th>
+          <td><%= f.submit "変更を保存", class:"btn btn-success" , data: { confirm: "本当に変更しますか？"} %></td>
+>>>>>>> 69d4f9ffb80e80f8113f9620416a86fa7b829b56
         </tr>
       </table>
     <% end %>
