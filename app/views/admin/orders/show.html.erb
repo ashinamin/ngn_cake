@@ -56,12 +56,6 @@
       </thead>
 
       <% @order_details.each do |order_detail| %>
-      <style>
-        tbody {
-          margin-top: 50px;
-          margin-bottom: 10px;
-        }
-      </style>
       <tbody>
         <tr>
           <td><%= order_detail.item.name %></td>
